@@ -31,7 +31,7 @@ exports.createCar = async function(request) {
         const contract = network.getContract('fabcar');
         console.log(request);
         console.log(JSON.stringify(request)); 
-        await contract.submitTransaction('createRequester', JSON.stringify(request));
+        await contract.submitTransaction('createCar', JSON.stringify(request));
         console.log('Transaction has been submitted');
         await gateway.disconnect(); 
         response.msg = 'createCar Transaction has been submitted';
@@ -137,7 +137,7 @@ exports.querySingleCar = async function(key) {
         const network = await gateway.getNetwork('mychannel');
         const contract = network.getContract('fabcar');
         console.log(key);
-        const result = await contract.evaluateTransaction('querySingleCar', key);
+        const result = await contract.evaluateTransaction('queryCar', key);
         return result;
 
     } catch (error) {
